@@ -15,19 +15,17 @@ $app->get('/', function () use ($app) {
     return $app->version();
 });
 
-// $app->get($uri, $callback);
-// $app->post($uri, $callback);
-// $app->put($uri, $callback);
-// $app->patch($uri, $callback);
-// $app->delete($uri, $callback);
-// $app->options($uri, $callback);
+$app->get('api/v1/post','PostController@index');
+$app->get('api/v1/post/{id}','PostController@getpost');
+$app->post('api/v1/post','PostController@createpost');
+$app->put('api/v1/post/{id}','PostController@updatepost');
+$app->delete('api/v1/post/{id}','PostController@deletepost');
 
-// $app->get('meong/{id}', function($id)
+// $app->group(['prefix' => 'api/v1','namespace' => 'App\Http\Controllers'], function($app)
 // {
-// 	return "meong ".$id;
-// });
-
-// $app->post('meong', function()
-// {
-// 	//
+//     $app->get('post','PostController@index');
+//     $app->get('post/{id}','PostController@getpost');
+//     $app->post('post','PostController@createpost');
+//     $app->put('post/{id}','PostController@updatepost');
+//     $app->delete('post/{id}','PostController@deletepost');
 // });
